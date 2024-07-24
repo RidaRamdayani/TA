@@ -11,7 +11,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item active">Home</li>
-                        <li class="breadcrumb-item"><a href="{{ route('users.index') }}">Kelola Data</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('users.index') }}">edit hak akses</a></li>
                     </ol>
                 </div>
             </div>
