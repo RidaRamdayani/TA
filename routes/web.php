@@ -34,43 +34,45 @@ Route::get('/', function () {
 //Route::get('/pengguna/index', [PenggunaController::class, 'index'])->name('pengguna.index');
 
 Route::group(['middleware' => ['auth','hakakses:admin']], function(){
-    Route::get('/olahdata', [RekapController::class, 'index'])->name('olahdata');
+    Route::resource('users', UserController::class);
 });
 
-//kelola data
-Route::get('/olahdata', [RekapController::class, 'index'])->name('olahdata')->middleware('auth');
-Route::get('/desa-per-kecamatan/{kecamatan}', [RekapController::class, 'DesaPerKecamatan']);
+Route::group(['middleware' => 'auth'], function() {
+    //kelola data
+    Route::get('/olahdata', [RekapController::class, 'index'])->name('olahdata')->middleware('auth');
+    Route::get('/desa-per-kecamatan/{kecamatan}', [RekapController::class, 'DesaPerKecamatan']);
 
-Route::get('/tambahdata', [RekapController::class, 'tambahdata'])->name('tambahdata');
-Route::post('/insertdata', [RekapController::class, 'insertdata'])->name('insertdata');
-Route::get('/getDesas/{kecamatan_id}', [RekapController::class, 'getDesasByKecamatan']);
-//Route::get('/getDesas/{kecamatanId}', [RekapController::class, 'getDesas']);
+    Route::get('/tambahdata', [RekapController::class, 'tambahdata'])->name('tambahdata');
+    Route::post('/insertdata', [RekapController::class, 'insertdata'])->name('insertdata');
+    Route::get('/getDesas/{kecamatan_id}', [RekapController::class, 'getDesasByKecamatan']);
+    //Route::get('/getDesas/{kecamatanId}', [RekapController::class, 'getDesas']);
 
-//import
-Route::post('/import', [RekapController::class, 'import'])->name('import');
+    //import
+    Route::post('/import', [RekapController::class, 'import'])->name('import');
 
-// Rute untuk menampilkan form edit data
-Route::get('/tampilkandata/{id}', [RekapController::class, 'tampilkandata'])->name('tampilkandata');
-// Rute untuk memproses pembaruan data
-Route::put('/updatedata/{id}', [RekapController::class, 'updatedata'])->name('updatedata');
+    // Rute untuk menampilkan form edit data
+    Route::get('/tampilkandata/{id}', [RekapController::class, 'tampilkandata'])->name('tampilkandata');
+    // Rute untuk memproses pembaruan data
+    Route::put('/updatedata/{id}', [RekapController::class, 'updatedata'])->name('updatedata');
 
-Route::delete('/hapusdata/{id}', [RekapController::class, 'hapusdata'])->name('hapusdata');
+    Route::delete('/hapusdata/{id}', [RekapController::class, 'hapusdata'])->name('hapusdata');
 
-Route::get('/tahundata', [tahunController::class, 'datatahun']);
+    Route::get('/tahundata', [tahunController::class, 'datatahun']);
 
-//HakAkses
-Route::resource('users', UserController::class);
+    //HakAkses
+    /* Route::resource('users', UserController::class); */
 
-//notifikasi
-Route::post('/contact-submit', [RekapController::class, 'submit'])->name('contact.submit');
-Route::get('/notification', [RekapController::class, 'notifikasi'])->name('notification.notifikasi');
-//edit profil
-Route::get('/profile/edit', [EditProfileController::class, 'edit'])->name('profile.edit')->middleware('auth');
-// Memproses perubahan profil
-Route::post('/profile/update', [EditProfileController::class, 'update'])->name('profile.update')->middleware('auth');
+    //notifikasi
+    Route::post('/contact-submit', [RekapController::class, 'submit'])->name('contact.submit');
+    Route::get('/notification', [RekapController::class, 'notifikasi'])->name('notification.notifikasi');
+    //edit profil
+    Route::get('/profile/edit', [EditProfileController::class, 'edit'])->name('profile.edit')->middleware('auth');
+    // Memproses perubahan profil
+    Route::post('/profile/update', [EditProfileController::class, 'update'])->name('profile.update')->middleware('auth');
 
-//cetak pdf
-Route::get('/cetakpdf', [RekapController::class, 'cetakpdf'])->name('cetakpdf');
+    //cetak pdf
+    Route::get('/cetakpdf', [RekapController::class, 'cetakpdf'])->name('cetakpdf');
+});
 
 Route::get('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/loginproses', [LoginController::class, 'loginproses'])->name('loginproses');
