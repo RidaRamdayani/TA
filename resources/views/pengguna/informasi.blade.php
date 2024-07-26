@@ -76,6 +76,19 @@
 
                     <div class="row gx-5 justify-content-center mt-5">
                         <div class="col-lg-11 col-xl-9 col-xxl-8">
+                            <div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
+                                <div class="card-body p-0">
+                                    <div class="d-flex align-items-center">
+                                        <div class="p-5">
+                                            <h4 class="fw-bolder">Dinas Perkebunan dan Peternakan Kabupaten Kubu Raya</h4>
+                                            <p>memiliki 4 bidang yaitu prasarana dan bina usaha, peternakan, pengolahan data dan perkebunan.
+                                                website ini menampilkan terkait informasi data perkebunan rakyat di kabupaten Kubu Raya yang di olah oleh bidang prasarana dan bina usaha.
+                                            </p>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
                             <!-- Project Card 1-->
                             <div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
                                 <div class="card-body p-0">

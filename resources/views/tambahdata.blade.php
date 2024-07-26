@@ -3,83 +3,86 @@
 @section('content')
 <body>
     
-  <h1 class="text-center mb-4">Tambah Data Perkebunan</h1>
+<h1 class="text-center mb-4">Tambah Data Perkebunan</h1>
 
-    <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-8">
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-10">
             <div class="card">
-              <div class="card-body">
-              <h2>Tambah Data</h2>
-              <form action="{{ route('insertdata') }}" method="POST">
-                @csrf
-                <div class="form-group">
-                    <label for="periode">Periode</label>
-                    <input type="date" name="periode" id="periode" class="form-control">
-                </div>
+                <div class="card-body">
+                    <h2>Tambah Data</h2>
+                    <form action="{{ route('insertdata') }}" method="POST">
+                        @csrf
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="periode">Periode</label>
+                                    <input type="date" name="periode" id="periode" class="form-control">
+                                </div>
 
-                <div class="form-group">
-                    <label for="kecamatan_id">Kecamatan</label>
-                    <select name="kecamatan_id" id="kecamatan_id" class="form-control">
-                        @foreach($kecamatans as $kecamatan)
-                            <option value="{{ $kecamatan->id }}">{{ $kecamatan->kecamatan }}</option>
-                        @endforeach
-                    </select>
-                    
-                </div>
-                <div class="form-group">
-                    <label for="desa_id">Desa</label>
-                    <select name="desa_id" id="desa_id" class="form-control">
-                        @foreach($desas as $desa)
-                            <option value="{{ $desa->id }}">{{ $desa->desa }}</option>
-                        @endforeach
-                    </select>
-                   
-                </div>
-                <div class="form-group">
-                    <label for="komoditi_id">Komoditi</label>
-                    <select name="komoditi_id" id="komoditi_id" class="form-control">
-                        @foreach($komoditis as $komoditi)
-                            <option value="{{ $komoditi->id }}">{{ $komoditi->komoditi }}</option>
-                        @endforeach
-                    </select>
-                   
-                </div>
-                <div class="form-group">
-                    <label for="luas_tanaman_muda">Luas Tanaman Muda</label>
-                    <input type="number" name="luas_tanaman_muda" id="luas_tanaman_muda" class="form-control" required>
-                   
-                </div>
-                <div class="form-group">
-                    <label for="luas_tanaman_menghasilkan">Luas Tanaman Menghasilkan</label>
-                    <input type="number" name="luas_tanaman_menghasilkan" id="luas_tanaman_menghasilkan" class="form-control" required>
-               
-                </div>
-                <div class="form-group">
-                    <label for="luas_tanaman_tua">Luas Tanaman Tua</label>
-                    <input type="number" name="luas_tanaman_tua" id="luas_tanaman_tua" class="form-control" required>
-                 
-                </div>
+                                <div class="form-group">
+                                    <label for="kecamatan_id">Kecamatan</label>
+                                    <select name="kecamatan_id" id="kecamatan_id" class="form-control">
+                                        @foreach($kecamatans as $kecamatan)
+                                            <option value="{{ $kecamatan->id }}">{{ $kecamatan->kecamatan }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
 
-                <div class="form-group">
-                    <label for="produksi">Produksi</label>
-                    <input type="number" name="produksi" id="produksi" class="form-control" required>
-                  
-                </div>
+                                <div class="form-group">
+                                    <label for="desa_id">Desa</label>
+                                    <select name="desa_id" id="desa_id" class="form-control">
+                                        @foreach($desas as $desa)
+                                            <option value="{{ $desa->id }}">{{ $desa->desa }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
 
-                <div class="form-group">
-                    <label for="petani">Petani</label>
-                    <input type="number" name="petani" id="petani" class="form-control" required>
-                   
+                                <div class="form-group">
+                                    <label for="komoditi_id">Komoditi</label>
+                                    <select name="komoditi_id" id="komoditi_id" class="form-control">
+                                        @foreach($komoditis as $komoditi)
+                                            <option value="{{ $komoditi->id }}">{{ $komoditi->komoditi }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="luas_tanaman_muda">Luas Tanaman Muda</label>
+                                    <input type="number" name="luas_tanaman_muda" id="luas_tanaman_muda" class="form-control" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="luas_tanaman_menghasilkan">Luas Tanaman Menghasilkan</label>
+                                    <input type="number" name="luas_tanaman_menghasilkan" id="luas_tanaman_menghasilkan" class="form-control" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="luas_tanaman_tua">Luas Tanaman Tua</label>
+                                    <input type="number" name="luas_tanaman_tua" id="luas_tanaman_tua" class="form-control" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="produksi">Produksi</label>
+                                    <input type="number" name="produksi" id="produksi" class="form-control" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="petani">Petani</label>
+                                    <input type="number" name="petani" id="petani" class="form-control" required>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Simpan</button>
+                        <a href="{{ route('olahdata') }}" class="btn btn-secondary">Kembali</a>
+                    </form>
                 </div>
-                <button type="submit" class="btn btn-primary">Simpan</button>
-                <a href="{{ route('olahdata') }}" class="btn btn-secondary">Kembali</a>
-            </form>
             </div>
-          </div>
         </div>
-      </div>
-  </div>
+    </div>
+</div>
+
 
   <script>
     document.addEventListener('DOMContentLoaded',function(){

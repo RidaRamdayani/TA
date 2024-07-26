@@ -132,6 +132,13 @@ class RekapController extends Controller
             'path' => LengthAwarePaginator::resolveCurrentPath()
         ]);
 
+        // Tambahkan penomoran yang berurutan
+        /* $startingNumber = ($currentPage - 1) * $perPage + 1;
+
+        foreach ($paginatedData as $key => $item) {
+            $item->number = $startingNumber + $key;
+        } */
+
         return view('keloladata', compact('paginatedData', 'years', 'kecamatans', 'desas', 'komoditis'));
     }
 

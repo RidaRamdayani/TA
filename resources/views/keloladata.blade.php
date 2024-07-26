@@ -63,7 +63,9 @@
                     <select name="kecamatan" id="kecamatan" class="form-control form-control-sm">
                         <option value="">-Pilih Kecamatan-</option>
                         @foreach ($kecamatans as $kecamatan)
-                            <option value="{{ $kecamatan->id }}"> {{ $kecamatan->kecamatan }}</option>
+                            <option value="{{ $kecamatan->id }}" {{ request('kecamatan') == $kecamatan->id ? 'selected' : '' }}>
+                                {{ $kecamatan->kecamatan }}
+                            </option>
                         @endforeach
                     </select>
                 </div>
