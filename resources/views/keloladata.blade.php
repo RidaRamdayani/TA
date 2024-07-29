@@ -36,14 +36,11 @@
         </div>
 
         @if (session('success'))
-            <div class="alert alert-success">
-                {{ session('success') }}
-            </div>
+            <div class="alert alert-success" id="success-alert">{{ session('success') }}</div>
         @endif
-        @if (session('error'))
-            <div class="alert alert-danger">
-                {{ session('error') }}
-            </div>
+
+        @if (session('warning'))
+            <div class="alert alert-warning" id="warning-alert">{{ session('warning') }}</div>
         @endif
 
         <form action="{{ url('/olahdata') }}" method="GET" class="mb-3">
@@ -281,97 +278,24 @@
         });
     });
 </script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var successAlert = document.getElementById('success-alert');
+        var warningAlert = document.getElementById('warning-alert');
 
-<!-- <script>
-    document.getElementById('kecamatan').addEventListener('change', function() {
-        var kecamatan_id = this.value;
-        var desaDropdown = document.getElementById('desa');
-        desaDropdown.innerHTML = '<option value="">-Pilih Desa-</option>';
+        if (successAlert) {
+            setTimeout(function() {
+                successAlert.style.display = 'none';
+            }, 3000); // Waktu dalam milidetik (3000 ms = 3 detik)
+        }
 
-        if (kecamatan_id) {
-            fetch(`/getDesas/${kecamatan_id}`)
-                .then(response => response.json())
-                .then(data => {
-                    data.forEach(function(desa) {
-                        var option = document.createElement('option');
-                        option.value = desa.id;
-                        option.text = desa.desa;
-                        desaDropdown.add(option);
-                    });
-                });
+        if (warningAlert) {
+            setTimeout(function() {
+                warningAlert.style.display = 'none';
+            }, 3000); // Waktu dalam milidetik (3000 ms = 3 detik)
         }
     });
-</script> -->
+</script>
+
 
 @endsection
-
-@section('scripts')
-
-<!-- <script>
-    $(document).ready(function(){
-        $('#kecamatan').on('change', function() {
-            var kecamatan_id = $(this).val();
-            if (kecamatan_id) {
-                $.ajax({
-                    url: '/desas/' + kecamatan_id,
-                    type: 'GET',
-                    dataType: 'json',
-                    success: function(data){
-                        if (data) {
-                            $('#desa').empty();
-                            $('#desa').append('<option value="">-Pilih-</option>');
-                            $.each(data, function(key, desa){
-                                $('#desa').append('<option value="' + desa.id + '">'+ desa.desa + '</option>');
-                            });
-                        } else {
-                            $('#desa').empty();
-                        }
-                    }
-                });
-            } else {
-                $('#desa').empty();
-            }
-        });
-    });
-</script> -->
-@endsection
-
-
-<!-- @section('scripts') -->
-    <!-- Tambahkan Bootstrap JS dan jQuery untuk modal -->
-    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script> -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> -->
-    
-    
-
-   <!--  <script type="text/javascript">
-        document.addEventListener('DOMContentLoaded', function () {
-            const kecamatanSelect = document.getElementById('kecamatan');
-            const desaSelect = document.getElementById('desa');
-
-            kecamatanSelect.addEventListener('change', function () {
-                const kecamatanId = this.value;
-
-                // Kosongkan dropdown desa saat kecamatan diubah
-                desaSelect.innerHTML = '<option value="">-Pilih Desa-</option>';
-
-                if (kecamatanId) {
-                    fetch(`/get-desas/${kecamatanId}`)
-                        .then(response => response.json())
-                        .then(data => {
-                            data.forEach(desa => {
-                                const option = document.createElement('option');
-                                option.value = desa.id;
-                                option.textContent = `${desa.id} - ${desa.desa}`;  // Format "ID - Nama"
-                                desaSelect.appendChild(option);
-                            });
-                        })
-                        .catch(error => console.error('Error fetching desas:', error));
-                }
-            });
-        });
-
-    </script> -->
-
-<!-- @endsection -->

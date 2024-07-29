@@ -95,21 +95,33 @@
                                     <div class="d-flex align-items-center">
                                         <div class="p-5">
                                             <h2 class="fw-bolder">Informasi 1</h2>
-                                            <p>Mengunjungi lahan perkebunan pada kecamatan Batu Ampar bersama kepala bidang</p>
+                                            <p>Mengunjungi lahan perkebunan kelapa pada kecamatan Batu Ampar</p>
                                         </div>
-                                        <img class="img-fluid" src="https://dummyimage.com/300x400/343a40/6c757d" alt="..." />
+                                        <img class="img-fluid" src="{{ asset('tampilan/dist/img/batu-ampar.jpg') }}" alt="batuampar" style="width: 300px; height: 400px; object-fit: cover;" />
                                     </div>
+
                                 </div>
                             </div>
                             <!-- Project Card 2-->
-                            <div class="card overflow-hidden shadow rounded-4 border-0">
+                            <div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
                                 <div class="card-body p-0">
                                     <div class="d-flex align-items-center">
                                         <div class="p-5">
                                             <h2 class="fw-bolder">Informasi 2</h2>
-                                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius at enim eum illum aperiam placeat esse? Mollitia omnis minima saepe recusandae libero, iste ad asperiores! Explicabo commodi quo itaque! Ipsam!</p>
+                                            <p>Mengunjungi lahan perkebunan pada kecamatan Sungai Ambawang</p>
                                         </div>
-                                        <img class="img-fluid" src="https://dummyimage.com/300x400/343a40/6c757d" alt="..." />
+                                        <img class="img-fluid" src="{{ asset('tampilan/dist/img/sui ambawang.jpg') }}" alt="batuampar" style="width: 300px; height: 400px; object-fit: cover;" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card overflow-hidden shadow rounded-4 border-0">
+                                <div class="card-body p-0">
+                                    <div class="d-flex align-items-center">
+                                        <div class="p-5">
+                                            <h2 class="fw-bolder">Informasi 3</h2>
+                                            <p>Mengunjungi lahan perkebunan pada Desa Sungai Rengas Kecamatan Sungai Kakap</p>
+                                        </div>
+                                        <img class="img-fluid" src="{{ asset('tampilan/dist/img/sui rengas.jpg') }}" alt="batuampar" style="width: 300px; height: 400px; object-fit: cover;" />
                                     </div>
                                 </div>
                             </div>
@@ -147,7 +159,7 @@
         <footer class="bg-white py-4 mt-auto">
             <div class="container px-5">
                 <div class="row align-items-center justify-content-between flex-column flex-sm-row">
-                    <div class="col-auto"><div class="small m-0">Copyright &copy; Your Website 2023</div></div>
+                    <div class="col-auto"><div class="small m-0"> &copy; website visualisasi data</div></div>
                     <div class="col-auto">
                         <a class="small" href="#!">Privacy</a>
                         <span class="mx-1">&middot;</span>

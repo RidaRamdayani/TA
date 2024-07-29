@@ -20,7 +20,7 @@
 
     <div class="container">
         @if (session('success'))
-            <div class="alert alert-success">
+            <div class="alert alert-success" id="success-alert">
                 {{ session('success') }}
             </div>
         @endif
@@ -55,4 +55,14 @@
             <button type="submit" class="btn btn-primary">Update Profile</button>
         </form>
     </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var alert = document.getElementById('success-alert');
+        if (alert) {
+            setTimeout(function() {
+                alert.style.display = 'none';
+            }, 3000); // Waktu dalam milidetik (3000 ms = 3 detik)
+        }
+    });
+</script>
 @endsection
