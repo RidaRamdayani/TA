@@ -126,12 +126,14 @@ class RekapController extends Controller
         }
 
         $currentPage = LengthAwarePaginator::resolveCurrentPage();
+        // return $currentPage;
         $perPage = 10;
-        $currentItems = $data->slice(($currentPage - 1) * $perPage, $perPage)->all();
+        $currentItems = $data->slice(($currentPage - 1) * 10, 10)->all();
+        // return $currentItems;
         $paginatedData = new LengthAwarePaginator($currentItems, $data->count(), $perPage, $currentPage, [
             'path' => LengthAwarePaginator::resolveCurrentPath()
         ]);
-
+        // return $paginatedData;
         return view('keloladata', compact('paginatedData', 'years', 'kecamatans', 'desas', 'komoditis'));
     }
 

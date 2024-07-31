@@ -238,5 +238,29 @@
 
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{ asset('tampilan/dist/js/pages/dashboard2.js') }}"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Retrieve the sidebar state from local storage
+        const sidebarState = localStorage.getItem('sidebarState');
+        
+        // Set the sidebar state based on the value in local storage
+        if (sidebarState === 'collapsed') {
+            document.body.classList.add('sidebar-collapse');
+        } else {
+            document.body.classList.remove('sidebar-collapse');
+        }
+
+        // Add event listener to the sidebar toggle button
+        document.querySelector('[data-widget="pushmenu"]').addEventListener('click', function () {
+            // Check the current state of the sidebar and save the opposite state
+            if (document.body.classList.contains('sidebar-collapse')) {
+                localStorage.setItem('sidebarState', 'expanded');
+            } else {
+                localStorage.setItem('sidebarState', 'collapsed');
+            }
+        });
+    });
+</script>
+
 </body>
 </html>

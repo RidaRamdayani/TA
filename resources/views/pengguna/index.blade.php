@@ -119,7 +119,7 @@
                                 <h2 class="display-5 fw-bolder"><span class="text-gradient d-inline">DISBUNNAK</span></h2>
                                 <h3 class="display-5 fw-bolder"><span class="text-gradient d-inline">Kabupaten Kubu Raya</span></h3>
                                 <p class="lead fw-light mb-4">Bidang Prasarana dan Bina Usaha</p>
-                                <p class="lead fw-light mb-4">Website Visualisasi Data Perkebunan Rakyat Kabupaten Kubu Raya</p>
+                                <p class="lead fw-light mb-4">Sistem Informasi Visualisasi Data Perkebunan Rakyat Kabupaten Kubu Raya</p>
                                 <div class="d-flex justify-content-center fs-2 gap-4">
                                     <a class="text-gradient" href="https://www.instagram.com/disbunnakkuburaya?igsh=eWFhbDF0NHByOHY2"><i class="bi bi-instagram"></i></a>
                                     <a class="text-gradient" href="https://youtube.com/@disbunnakkuburaya90?si=zfa6j1powP9RhwFe"><i class="bi bi-youtube"></i></a>
@@ -136,11 +136,7 @@
                 <div class="row align-items-center justify-content-between flex-column flex-sm-row">
                     <div class="col-auto"><div class="small m-0">&copy;website visualisasi data</div></div>
                     <div class="col-auto">
-                        <a class="small" href="{{ url('/dashboard') }}">Privacy</a>
-                        <span class="mx-1">&middot;</span>
-                        <a class="small" href="#!">Terms</a>
-                        <span class="mx-1">&middot;</span>
-                        <a class="small" href="#!">Contact</a>
+                        <a class="small" href="{{ url('/dashboard') }}">Admin</a>
                     </div>
                 </div>
             </div>

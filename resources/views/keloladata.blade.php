@@ -104,7 +104,7 @@
                 <tbody>
                     @foreach ($paginatedData as $index => $row)
                         <tr style="text-align: center;">
-                            <th scope="row">{{ $index + $paginatedData->firstItem() }}</th>
+                            <th scope="row">{{ $index + 1 }}</th>
                             <td style="text-align:left">{{ $row->komoditi }}</td>
                             <td>{{ $row->luas_tanaman_muda }}</td>
                             <td>{{ $row->luas_tanaman_menghasilkan }}</td>
@@ -209,37 +209,62 @@
 </div>
 <!-- dropdown desa by kecamatan -->
 <script>
-    document.addEventListener('DOMContentLoaded',function(){
+    document.addEventListener('DOMContentLoaded', function() {
         var kecamatanSelect = document.getElementById('kecamatan');
         var desaSelect = document.getElementById('desa');
 
-        kecamatanSelect.addEventListener('change', function(){
+        // Function to populate desa options
+        function populateDesaOptions(desas, selectedDesa) {
+            desaSelect.innerHTML = '<option value="">-Pilih Desa-</option>'; // Reset pilihan desa
+            desas.forEach(desa => {
+                var option = document.createElement('option');
+                option.value = desa.id;
+                option.textContent = desa.desa;
+                if (desa.id == selectedDesa) {
+                    option.selected = true; // Set as selected if it matches
+                }
+                desaSelect.appendChild(option);
+            });
+        }
+
+        // Handle kecamatan change event
+        kecamatanSelect.addEventListener('change', function() {
             var kecamatanId = kecamatanSelect.value;
-            // console.log('Kecamatan selected:', kecamatanId);
 
             if (kecamatanId) {
-                fetch('/getDesas/'+ kecamatanId)
+                fetch('/getDesas/' + kecamatanId)
+                    .then(response => {
+                        console.log('Fetch response received:', response); // Log response fetch
+                        return response.json();
+                    })
+                    .then(data => {
+                        var selectedDesa = '{{ request('desa') }}'; // Get selected desa from request
+                        populateDesaOptions(data, selectedDesa); // Populate desa options
+                    })
+                    .catch(error => {
+                        console.error('Error during fetch:', error); // Log jika ada kesalahan
+                    });
+            } else {
+                desaSelect.innerHTML = '<option value="">-Pilih Desa-</option>';
+            }
+        });
+
+        // On page load, if a kecamatan is selected, fetch and populate desa options
+        var initialKecamatan = '{{ request('kecamatan') }}';
+        var initialDesa = '{{ request('desa') }}';
+        if (initialKecamatan) {
+            fetch('/getDesas/' + initialKecamatan)
                 .then(response => {
-                    console.log('Fetch response received:', response); // Log respon fetch
+                    console.log('Fetch response received:', response); // Log response fetch
                     return response.json();
                 })
                 .then(data => {
-                    desaSelect.innerHTML = '<option value="">Pilih Desa</option>'; // Reset pilihan desa
-                    data.forEach(desa => {
-                        var option = document.createElement('option');
-                        option.value = desa.id; // Asumsikan ada kunci 'id' untuk nilai option
-                        option.textContent = desa.desa; // Asumsikan ada kunci 'namaDesa' untuk teks option
-                        desaSelect.appendChild(option);
-                    });
+                    populateDesaOptions(data, initialDesa); // Populate desa options
                 })
                 .catch(error => {
                     console.error('Error during fetch:', error); // Log jika ada kesalahan
                 });
-
-            } else {
-                desaSelect.innerHTML = '<option value="">Pilih Desa</option>';
-            }
-        });
+        }
     });
 </script>
 
