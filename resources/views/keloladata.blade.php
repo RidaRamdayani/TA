@@ -83,10 +83,12 @@
                     <a href="{{ url('/olahdata') }}" class="btn btn-secondary btn-sm">Reset</a>
                 </div>
             </div>
+            <div class="mt-3">
+                <p><strong>Kecamatan:</strong> {{ $currentKecamatan }} <strong>Desa:</strong> {{ $currentDesa }}</p>
+            </div>
         </form>
-
         <div class="table-responsive">
-            <table class="table mt-3 table-sm">
+            <table class="table mt-2 table-sm">
                 <thead class="table-secondary">
                     <tr style="text-align: center;">
                         <th scope="col">No</th>
@@ -130,9 +132,11 @@
                 {{ $paginatedData->links() }}
             </div>
         </div>
+
     </div>
 </div>
 
+<!-- Cetak PDF Modal -->
 <div class="modal fade" id="cetakPdfModal" tabindex="-1" role="dialog" aria-labelledby="cetakPdfModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -207,6 +211,7 @@
     </div>
   </div>
 </div>
+
 <!-- dropdown desa by kecamatan -->
 <script>
     document.addEventListener('DOMContentLoaded', function() {

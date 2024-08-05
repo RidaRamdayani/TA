@@ -126,15 +126,17 @@ class RekapController extends Controller
         }
 
         $currentPage = LengthAwarePaginator::resolveCurrentPage();
-        // return $currentPage;
         $perPage = 10;
         $currentItems = $data->slice(($currentPage - 1) * 10, 10)->all();
-        // return $currentItems;
         $paginatedData = new LengthAwarePaginator($currentItems, $data->count(), $perPage, $currentPage, [
             'path' => LengthAwarePaginator::resolveCurrentPath()
         ]);
-        // return $paginatedData;
-        return view('keloladata', compact('paginatedData', 'years', 'kecamatans', 'desas', 'komoditis'));
+
+        // Ambil kecamatan dan desa untuk halaman saat ini
+        $currentKecamatan = $paginatedData->pluck('kecamatan')->unique()->implode(', ');
+        $currentDesa = $paginatedData->pluck('desa')->unique()->implode(', ');
+
+        return view('keloladata', compact('paginatedData', 'years', 'kecamatans', 'desas', 'komoditis', 'currentKecamatan', 'currentDesa'));
     }
 
 
@@ -434,6 +436,12 @@ class RekapController extends Controller
                             ->where('komoditi_id', $luas_tanaman->komoditi_id)
                             ->first();
 
+            $jumlah = ($luas_tanaman->luas_tanaman_muda ?? 0) +
+                    ($luas_tanaman->luas_tanaman_menghasilkan ?? 0) +
+                    ($luas_tanaman->luas_tanaman_tua ?? 0);
+
+            $rata_rata = $jumlah > 0 ? ($produksi->produksi ?? 0) / $jumlah * 1000 : 0;
+
             $data->push((object) [
                 'periode' => $luas_tanaman->tahuns->periode ?? 'Tidak Tersedia',
                 'kecamatan' => $luas_tanaman->kecamatans->kecamatan ?? 'Tidak Tersedia',
@@ -442,7 +450,9 @@ class RekapController extends Controller
                 'luas_tanaman_muda' => $luas_tanaman->luas_tanaman_muda ?? 'Tidak Tersedia',
                 'luas_tanaman_menghasilkan' => $luas_tanaman->luas_tanaman_menghasilkan ?? 'Tidak Tersedia',
                 'luas_tanaman_tua' => $luas_tanaman->luas_tanaman_tua ?? 'Tidak Tersedia',
+                'jumlah' => $jumlah,
                 'produksi' => $produksi->produksi ?? 'Tidak Tersedia',
+                'rata_rata' => number_format($rata_rata, 2),
                 'petani' => $petani->petani ?? 'Tidak Tersedia',
                 'id' => $luas_tanaman->id
             ]);

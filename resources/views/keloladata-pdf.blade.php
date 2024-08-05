@@ -61,7 +61,9 @@
                     <th>Luas Tanaman Muda</th>
                     <th>Luas Tanaman Menghasilkan</th>
                     <th>Luas Tanaman Tua</th>
-                    <th>Produksi</th>
+                    <th>Jumlah</th>
+                    <th>Produksi(Ton)</th>
+                    <th>Rata Rata(Kg)</th>
                     <th>Petani</th>
                 </tr>
             </thead>
@@ -72,7 +74,9 @@
                     <td>{{ $row->luas_tanaman_muda }}</td>
                     <td>{{ $row->luas_tanaman_menghasilkan }}</td>
                     <td>{{ $row->luas_tanaman_tua }}</td>
+                    <td>{{ $row->jumlah }}</td>
                     <td>{{ $row->produksi }}</td>
+                    <td>{{ $row->rata_rata }}</td>
                     <td>{{ $row->petani }}</td>
                 </tr>
                 @endforeach

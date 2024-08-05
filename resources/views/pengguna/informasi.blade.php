@@ -2,68 +2,81 @@
 <html lang="en">
 <head>
 <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <title>Modern Business - Start Bootstrap Template</title>
-    <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-    <!-- Custom Google font-->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
-    <!-- Bootstrap icons-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
-    <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="css/styles.css" rel="stylesheet" />
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        .marquee-section {
-            position: relative;
-            overflow: hidden;
-            background-color: #37B7C3;
-            padding: 10px 0;
-        }
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<title>Modern Business - Start Bootstrap Template</title>
+<!-- Favicon-->
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+<!-- Custom Google font-->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
+<!-- Bootstrap icons-->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
+<!-- Core theme CSS (includes Bootstrap)-->
+<link href="css/styles.css" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css">
+<style>
+    .marquee-section {
+        position: relative;
+        overflow: hidden;
+        background-color: #37B7C3;
+        padding: 10px 0;
+    }
 
-        .running-text-container {
-            position: relative;
-            overflow: hidden;
-            height: 40px;
-        }
+    .running-text-container {
+        position: relative;
+        overflow: hidden;
+        height: 40px;
+    }
 
-        .running-text {
-            position: absolute;
-            white-space: nowrap;
-            animation: marquee 20s linear infinite;
-        }
+    .running-text {
+        position: absolute;
+        white-space: nowrap;
+        animation: marquee 20s linear infinite;
+    }
 
-        .running-text p {
-            display: inline-block;
-            padding: 10px 20px;
-            color: #FCF8F3;
-            border-radius: 5px;
-        }
+    .running-text p {
+        display: inline-block;
+        padding: 10px 20px;
+        color: #FCF8F3;
+        border-radius: 5px;
+    }
 
-        @keyframes marquee {
-            0% { transform: translateX(100%); }
-            100% { transform: translateX(-100%); }
-        }
+    @keyframes marquee {
+        0% { transform: translateX(100%); }
+        100% { transform: translateX(-100%); }
+    }
 
-        .bg-custom-blue {
-            background-color: #021526;
-        }
-        
-        .indent {
-            text-indent: 40px;
-        }
+    .bg-custom-blue {
+        background-color: #021526;
+    }
+    
+    .indent {
+        text-indent: 40px;
+    }
 
+    .carousel-item img {
+        width: 100%;
+        height: 500px; /* Set height to your desired value */
+        object-fit: cover; /* Ensures the image covers the container while maintaining aspect ratio */
+    }
+
+    @media (max-width: 768px) {
         .carousel-item img {
-            width: 100%;
-            height: 500px; /* Set height to your desired value */
-            object-fit: cover; /* Ensures the image covers the container while maintaining aspect ratio */
+            height: 300px; /* Adjust height for smaller screens */
         }
-
-    </style>
+        .address-section p {
+            font-size: 14px;
+        }
+        .card img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+    }
+</style>
 </head>
 <body class="d-flex flex-column h-100 bg-light">
     <main class="flex-shrink-0">
@@ -107,27 +120,12 @@
                         <span class="visually-hidden">Next</span>
                     </button>
                 </div>
-                <!-- <div class="slider-container">
-                    <div class="slider">
-                        <div class="slide">
-                            <img src="{{ asset('tampilan/dist/img/sawit.jpg') }}" alt="Image 1">
-                        </div>
-                        <div class="slide">
-                            <img src="{{ asset('tampilan/dist/img/kelapa 2.jpg') }}" alt="Image 2">
-                        </div>
-                        <div class="slide">
-                            <img src="{{ asset('tampilan/dist/img/karet.jpg') }}" alt="Image 3">
-                        </div>
-                    </div>
-                    <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
-                    <button class="next" onclick="moveSlide(1)">&#10095;</button>
-                </div> -->
 
                 <div class="row gx-5 justify-content-center mt-5">
                     <div class="col-lg-11 col-xl-9 col-xxl-8">
                         <div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
                             <div class="card-body p-0">
-                                <div class="d-flex align-items-center">
+                                <div class="d-flex flex-column flex-md-row align-items-center">
                                     <div class="p-5">
                                         <h4 class="fw-bolder">Dinas Perkebunan dan Peternakan Kabupaten Kubu Raya</h4>
                                         <p class="indent">DISBUNNAK memiliki 4 bidang yaitu bidang prasarana dan bina usaha, bidang produksi dan pembenihan, bidang perlindungan dan penyuluhan, bidang peternakan dan kesehatan hewan.                                                
@@ -141,20 +139,19 @@
                         <!-- Project Card 1-->
                         <div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
                             <div class="card-body p-0">
-                                <div class="d-flex align-items-center">
+                                <div class="d-flex flex-column flex-md-row align-items-center">
                                     <div class="p-5">
                                         <h2 class="fw-bolder">Informasi 1</h2>
                                         <p>Mengunjungi lahan perkebunan kelapa dalam lokal pada kecamatan Batu Ampar</p>
                                     </div>
                                     <img class="img-fluid" src="{{ asset('tampilan/dist/img/batu-ampar.jpg') }}" alt="batuampar" style="width: 300px; height: 400px; object-fit: cover;" />
                                 </div>
-
                             </div>
                         </div>
                         <!-- Project Card 2-->
                         <div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
                             <div class="card-body p-0">
-                                <div class="d-flex align-items-center">
+                                <div class="d-flex flex-column flex-md-row align-items-center">
                                     <div class="p-5">
                                         <h2 class="fw-bolder">Informasi 2</h2>
                                         <p>Mengunjungi lahan perkebunan karet pada kecamatan Sungai Ambawang</p>
@@ -165,7 +162,7 @@
                         </div>
                         <div class="card overflow-hidden shadow rounded-4 border-0">
                             <div class="card-body p-0">
-                                <div class="d-flex align-items-center">
+                                <div class="d-flex flex-column flex-md-row align-items-center">
                                     <div class="p-5">
                                         <h2 class="fw-bolder">Informasi 3</h2>
                                         <p>Mengunjungi lahan perkebunan kelapa dalam lokal pada Desa Sungai Rengas Kecamatan Sungai Kakap</p>
@@ -185,7 +182,7 @@
                     <div class="col-md-6 pr-md-4 mb-4 mb-md-0">
                         <div class="embed-responsive embed-responsive-16by9">
                             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7973.93966702294!2d109.37872867236564!3d-0.18534050975907962!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e1d5cbbf2399161%3A0x46856816073e6655!2sJl.%20Adisucipto%20No.15%2C%20Arang%20Limbung%2C%20Kec.%20Sungai%20Raya%2C%20Kabupaten%20Kubu%20Raya%2C%20Kalimantan%20Barat%2078391!5e0!3m2!1sen!2sid!4v1652082326655!5m2!1sen!2sid" 
-                                    width="500" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                width="100%" height="350" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
                     <div class="col-md-6 pl-md-4">
@@ -217,52 +214,5 @@
     <script src="js/scripts.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/js/bootstrap.bundle.min.js"></script>
- <!--    <script>
-        let currentIndex = 0;
-
-        function moveSlide(direction) {
-            const slides = document.querySelectorAll('.slide');
-            const totalSlides = slides.length;
-
-            currentIndex += direction;
-
-            if (currentIndex < 0) {
-                currentIndex = totalSlides - 1;
-            } else if (currentIndex >= totalSlides) {
-                currentIndex = 0;
-            }
-
-            const slider = document.querySelector('.slider');
-            slider.style.transform = `translateX(-${currentIndex * 100}%)`;
-        }
-    </script>
-    <script>
-        let currentSlide = 0;
-
-        function showSlide(index) {
-            const slides = document.querySelectorAll('.slide');
-            if (index >= slides.length) {
-                currentSlide = 0;
-            } else if (index < 0) {
-                currentSlide = slides.length - 1;
-            } else {
-                currentSlide = index;
-            }
-            const slider = document.querySelector('.slider');
-            slider.style.transform = 'translateX(' + (-currentSlide * 100) + '%)';
-        }
-
-        function moveSlide(direction) {
-            showSlide(currentSlide + direction);
-        }
-
-        function autoSlide() {
-            moveSlide(1);
-        }
-
-        setInterval(autoSlide, 3000); // Ganti slide setiap 3 detik
-
-        showSlide(currentSlide); // Menampilkan slide pertama
-    </script> -->
 </body>
 </html>

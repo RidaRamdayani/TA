@@ -188,7 +188,7 @@
           </li>
 
           <li class="nav-item">
-            <a href="/logout" class="nav-link">
+            <a href="/" class="nav-link">
             <i class="nav-icon fas fa-sign-out-alt logout-icon fa-flip-horizontal"></i> 
               <p>
                 Logout            
